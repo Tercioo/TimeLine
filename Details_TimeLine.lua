@@ -86,7 +86,7 @@ local function CreatePluginFrames()
 	c:SetAlpha (1)
 	
 --title bar
-	local titlebar = CreateFrame ("frame", nil, TimeLineFrame)
+	local titlebar = CreateFrame ("frame", nil, TimeLineFrame, BackdropTemplateMixin and "BackdropTemplate")
 	titlebar:SetPoint ("topleft", TimeLineFrame, "topleft", 2, -3)
 	titlebar:SetPoint ("topright", TimeLineFrame, "topright", -2, -3)
 	titlebar:SetHeight (20)
@@ -831,13 +831,13 @@ local function CreatePluginFrames()
 
 		-- pegar o jogador
 		-- dar foreach nos cooldowns
-		-- ver se algum começa antes e termina depois de começar este
+		-- ver se algum comeÃ§a antes e termina depois de comeÃ§ar este
 		local player_name = spell [4]
 		local playertable = TimeLine [current_type] [current_segment] [player_name]
 		
 		local time = spell [2]
 		local duration = spell [5]
-		--playertable é uma array com os cooldowns usados
+		--playertable Ã© uma array com os cooldowns usados
 		
 		if (current_type == type_cooldown) then
 	
@@ -855,7 +855,7 @@ local function CreatePluginFrames()
 				if (spellused [3] ~= spell[1]) then --spellids diferentes
 				
 					--tempo de luta que o cooldown foi usado
-					-- se ele foi usado antes		          e se foi usado a 8 seg de diferença
+					-- se ele foi usado antes		          e se foi usado a 8 seg de diferenÃ§a
 					if ( (spellused [1] <= time and spellused [1] + 8 >= time) or (spellused [1] >= time and spellused [1] - 8 <= time) ) then
 					
 						local spellname, _, spellicon = GetSpellInfo (spellused [3])
@@ -1595,7 +1595,7 @@ local build_options_panel = function()
 	local menu = {
 	
 		--o icone pode ser mostrado sempre que tiver algum segmento nele.
-		--ao resetar ele esconde o icone, ao resetar o details ele apaga os dados tbm e esconde o ícone.
+		--ao resetar ele esconde o icone, ao resetar o details ele apaga os dados tbm e esconde o Ã­cone.
 		
 		{
 			type = "range",
