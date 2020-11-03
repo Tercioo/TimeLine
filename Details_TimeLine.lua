@@ -86,7 +86,7 @@ local function CreatePluginFrames()
 	c:SetAlpha (1)
 	
 --title bar
-	local titlebar = CreateFrame ("frame", nil, TimeLineFrame)
+	local titlebar = CreateFrame ("frame", nil, TimeLineFrame, "BackdropTemplate")
 	titlebar:SetPoint ("topleft", TimeLineFrame, "topleft", 2, -3)
 	titlebar:SetPoint ("topright", TimeLineFrame, "topright", -2, -3)
 	titlebar:SetHeight (20)
@@ -831,13 +831,13 @@ local function CreatePluginFrames()
 
 		-- pegar o jogador
 		-- dar foreach nos cooldowns
-		-- ver se algum começa antes e termina depois de começar este
+		-- ver se algum comeï¿½a antes e termina depois de comeï¿½ar este
 		local player_name = spell [4]
 		local playertable = TimeLine [current_type] [current_segment] [player_name]
 		
 		local time = spell [2]
 		local duration = spell [5]
-		--playertable é uma array com os cooldowns usados
+		--playertable ï¿½ uma array com os cooldowns usados
 		
 		if (current_type == type_cooldown) then
 	
@@ -855,7 +855,7 @@ local function CreatePluginFrames()
 				if (spellused [3] ~= spell[1]) then --spellids diferentes
 				
 					--tempo de luta que o cooldown foi usado
-					-- se ele foi usado antes		          e se foi usado a 8 seg de diferença
+					-- se ele foi usado antes		          e se foi usado a 8 seg de diferenï¿½a
 					if ( (spellused [1] <= time and spellused [1] + 8 >= time) or (spellused [1] >= time and spellused [1] - 8 <= time) ) then
 					
 						local spellname, _, spellicon = GetSpellInfo (spellused [3])
@@ -984,7 +984,7 @@ local function CreatePluginFrames()
 
 	function TimeLine:CreateSpellBlock (row)
 	
-		local block = CreateFrame ("frame", nil, row)
+		local block = CreateFrame ("frame", nil, row, "BackdropTemplate")
 		row.block_frame_level = row.block_frame_level + 1
 		if (row.block_frame_level > 9) then
 			row.block_frame_level = 3
@@ -1094,7 +1094,7 @@ local function CreatePluginFrames()
 	local PlaceDeathPins = function (row, i, death, total_time, pixel_per_sec)
 		local pin = row.pins [i]
 		if (not pin) then
-			pin = CreateFrame ("frame", nil, row)
+			pin = CreateFrame ("frame", nil, row, "BackdropTemplate")
 			pin:SetFrameLevel (12)
 			pin:SetFrameStrata ("DIALOG")
 			pin:SetScript ("OnEnter", pin_on_enter)
@@ -1333,7 +1333,7 @@ local function CreatePluginFrames()
 		local index = #TimeLine.rows+1
 		
 		-- cria as labels e mouse overs e da o set point
-		local f = CreateFrame ("frame", "DetailsTimeTimeRow"..index, TimeLineFrame)
+		local f = CreateFrame ("frame", "DetailsTimeTimeRow"..index, TimeLineFrame, "BackdropTemplate")
 		f:SetSize (TimeLineFrame.Width - 15, CONST_ROW_HEIGHT)
 		
 		f:SetScript ("OnEnter", row_on_enter)
@@ -1595,7 +1595,7 @@ local build_options_panel = function()
 	local menu = {
 	
 		--o icone pode ser mostrado sempre que tiver algum segmento nele.
-		--ao resetar ele esconde o icone, ao resetar o details ele apaga os dados tbm e esconde o ícone.
+		--ao resetar ele esconde o icone, ao resetar o details ele apaga os dados tbm e esconde o ï¿½cone.
 		
 		{
 			type = "range",
