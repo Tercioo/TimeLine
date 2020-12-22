@@ -32,7 +32,7 @@ local _is_in_combat = false
 
 TimeLine:SetPluginDescription (Loc ["STRING_PLUGIN_DESC"])
 
-TimeLine.version_string = "v3.3"
+TimeLine.version_string = "v43"
 
 local menu_wallpaper_tex = {.6, 0.1, 0, 0.64453125}
 local menu_wallpaper_color = {1, 1, 1, 0.15}
@@ -1690,7 +1690,7 @@ function TimeLine:OnEvent (_, event, ...)
 				--> create widgets
 				CreatePluginFrames()
 
-				local MINIMAL_DETAILS_VERSION_REQUIRED = 128
+				local MINIMAL_DETAILS_VERSION_REQUIRED = 140
 				
 				local db = DetailsTimeLineDB
 				
