@@ -32,7 +32,7 @@ local _is_in_combat = false
 
 TimeLine:SetPluginDescription (Loc ["STRING_PLUGIN_DESC"])
 
-TimeLine.version_string = "v43"
+TimeLine.version_string = "v109"
 
 local menu_wallpaper_tex = {.6, 0.1, 0, 0.64453125}
 local menu_wallpaper_color = {1, 1, 1, 0.15}
