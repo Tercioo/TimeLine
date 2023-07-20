@@ -1582,6 +1582,9 @@ end
 
 function TimeLine:AuraOff(time, token, hidding, sourceGUID, sourceName, sourceFlag, sourceFlag2, targetGUID, targetName, targetFlag, targetFlag2, spellId, spellName, spellType, auraType, amount)
 	if (auraType == "DEBUFF") then
+		if (combatObject.__destroyed) then
+			return
+		end
 		--is the target a player?
 		if (bitBand(targetFlag, 0x00000400) ~= 0) then
 			--is the source an enemy?
